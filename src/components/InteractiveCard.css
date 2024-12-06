@@ -1,0 +1,130 @@
+/* Overlay sombre derrière la carte */
+.card-overlay {
+    position: fixed;
+    top : 0;
+    left :0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Conteneur de la carte */
+.card-container {
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+    background: linear-gradient(145deg, #0077be, #004d73);
+    border: 2px solid #00bcd4;
+    border-radius: 10px;
+    overflow: hidden;
+    transform-origin: center;
+    box-shadow:
+            -10px -10px 20px -15px rgba(0, 231, 255, 0.7),
+            10px 10px 20px -15px rgba(255, 0, 231, 0.7),
+            0 0 20px rgba(255, 255, 255, 0.2),
+            0 55px 35px -20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.card-container:hover {
+    box-shadow:
+            -20px -20px 30px -25px rgba(0, 231, 255, 0.7),
+            20px 20px 30px -25px rgba(255, 0, 231, 0.7),
+            0 0 30px 5px rgba(255, 255, 255, 0.3),
+            0 55px 35px -20px rgba(0, 0, 0, 0.5);
+}
+
+/* Effet Halo */
+.card-container:before,
+.card-container:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    mix-blend-mode: color-dodge;
+    transition: all 0.33s ease;
+}
+
+.card-container:before {
+    background-image: linear-gradient(
+            115deg,
+            transparent 0%,
+            rgba(0, 231, 255, 0.4) 25%,
+            transparent 47%,
+            transparent 53%,
+            rgba(255, 0, 231, 0.4) 75%,
+            transparent 100%
+    );
+    background-position: 50% 50%;
+    background-size: 300% 300%;
+    filter: brightness(0.5) contrast(1);
+    z-index: 1;
+}
+
+.card-container:after {
+    background-image: url("https://assets.codepen.io/13471/sparkles.gif"),
+    url(https://assets.codepen.io/13471/holo.png),
+    linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
+    background-position: 50% 50%;
+    background-size: 160%;
+    background-blend-mode: overlay;
+    filter: brightness(1) contrast(1);
+    opacity: 0.75;
+    z-index: 1;
+}
+
+/* Contenu de la carte */
+.card-content {
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+.card-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.card-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.card-description {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+/* Bouton de fermeture */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    color: #ffffff;
+    font-size: 1.5em;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-button:hover {
+    color: #ff6b6b;
+    transform: scale(1.2);
+    transition: all 0.2s ease;
+}

@@ -1,0 +1,69 @@
+.podcast-page {
+    background-image: url("../assets/oceanScene.png"); /* Chemin vers le fond */
+    background-size: cover; /* L'image couvre tout le conteneur */
+    background-position: center; /* Centrage du fond */
+    background-attachment: fixed; /* Le fond reste fixe au scroll */
+    min-height: 100vh; /* La page occupe toute la hauteur */
+    color: #fff; /* Texte blanc pour contraste */
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.podcast-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.podcast-header h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.back-button {
+    background-color: #0077b6;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background-color: #00a8cc;
+}
+
+.podcast-content {
+    width: 100%;
+    max-width: 800px;
+}
+
+.podcast-card {
+    background: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.podcast-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.podcast-card p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+audio {
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+}
