@@ -1,135 +1,132 @@
 // src/components/OceanGame.js
-import React, { useEffect, useRef, useState } from 'react';
-import Phaser from 'phaser';
-import { useNavigate } from 'react-router-dom';
-import Ocean from '../assets/ocean2.png'; // Importer l'image d'océan
-import Player from '../assets/player.png'; // Importer l'image du joueur
-import Shark from '../assets/shark.png'; // Importer l'image du requin
-import Seaweed from '../assets/seaweed.png'; // Importer l'image des herbes marines
-import Coral from '../assets/coral.png'; // Importer l'image des murs du labyrinthe
+import React, { useEffect, useRef, useState } from "react";
+import Phaser from "phaser";
+import { useNavigate } from "react-router-dom";
+import Ocean from "../assets/ocean2.png"; // Ocean background
+import Player from "../assets/player.png"; // Player sprite
+import Shark from "../assets/shark.png"; // Shark sprite
+import Seaweed from "../assets/seaweed.png"; // Seaweed sprite
+import Coral from "../assets/coral.png"; // Maze wall sprite
 
 const OceanGame = () => {
     const navigate = useNavigate();
-    const isMounted = useRef(true); // Référence pour suivre l'état de montage
-    const [gameOver, setGameOver] = useState(false); // État pour gérer la fin du jeu
+    const gameRef = useRef(null);
+    const [gameOver, setGameOver] = useState(false);
 
     useEffect(() => {
-        isMounted.current = true; // Le composant est monté
-
         const config = {
             type: Phaser.AUTO,
             width: window.innerWidth,
             height: window.innerHeight,
-            backgroundColor: '#87CEEB', // Bleu ciel pour représenter l'océan
-            parent: 'game-container',
+            backgroundColor: "#87CEEB",
+            parent: "game-container",
             physics: {
-                default: 'arcade',
+                default: "arcade",
                 arcade: {
                     gravity: { y: 0 },
                     debug: false,
                 },
             },
             scene: {
-                preload: preload,
-                create: create,
-                update: update,
+                preload,
+                create,
+                update,
             },
         };
 
-        const game = new Phaser.Game(config);
+        let game = new Phaser.Game(config);
+        gameRef.current = game;
 
         let player;
         let sharks;
         let seaweeds;
         let cursors;
-        let playerSize = 1; // Réduire l'échelle initiale du joueur
+        let playerSize = 0.8; // Adjust player size for gameplay balance
 
         function preload() {
-            // Charger les images depuis le dossier public/assets ou via import
-            this.load.image('ocean', Ocean); // Image d'océan
-            this.load.image('player', Player); // Image du joueur
-            this.load.image('shark', Shark); // Image du requin
-            this.load.image('seaweed', Seaweed); // Image des herbes marines
-            this.load.image('wall', Coral); // Image des murs du labyrinthe
+            this.load.image("ocean", Ocean);
+            this.load.image("player", Player);
+            this.load.image("shark", Shark);
+            this.load.image("seaweed", Seaweed);
+            this.load.image("wall", Coral);
         }
 
         function create() {
-            // Ajouter l'image de l'océan
-            this.add.image(0, 0, 'ocean').setOrigin(0, 0).setDisplaySize(this.scale.width, this.scale.height);
+            // Background
+            this.add
+                .image(0, 0, "ocean")
+                .setOrigin(0, 0)
+                .setDisplaySize(this.scale.width, this.scale.height);
 
-            // Créer les murs du labyrinthe
+            // Maze walls
             const maze = this.physics.add.staticGroup();
-
-            // Exemple simple de murs (ajustez selon vos besoins pour créer un labyrinthe)
             const walls = [
-                { x: 400, y: 300, sprite: 'wall' },
-                { x: 400, y: 500, sprite: 'wall' },
-                { x: 600, y: 300, sprite: 'wall' },
-                { x: 200, y: 400, sprite: 'wall' },
-                { x: 400, y: 700, sprite: 'wall' },
-                { x: 400, y: 750, sprite: 'wall' },
-                { x: 600, y: 800, sprite: 'wall' },
-                { x: 200, y: 450, sprite: 'wall' },
-                // Ajoutez plus de murs pour former un labyrinthe
+                { x: 400, y: 300 },
+                { x: 600, y: 300 },
+                { x: 400, y: 700 },
+                { x: 200, y: 450 },
+                { x: 700, y: 450 },
+                { x: 300, y: 150 },
             ];
 
-            walls.forEach(wall => {
-                maze.create(wall.x, wall.y, wall.sprite).setScale(0.5).refreshBody();
-            });
+            walls.forEach(({ x, y }) =>
+                maze.create(x, y, "wall").setScale(0.5).refreshBody()
+            );
 
-            // Créer le joueur
-            player = this.physics.add.sprite(100, 100, 'player');
+            // Player
+            player = this.physics.add.sprite(100, 100, "player");
             player.setCollideWorldBounds(true);
             player.setScale(playerSize);
+            player.setBounce(0.3);
 
-            // Créer les herbes marines
+            // Seaweed
             seaweeds = this.physics.add.group({
-                key: 'seaweed',
+                key: "seaweed",
                 repeat: 10,
-                setXY: { x: 150, y: 150, stepX: 70 },
+                setXY: { x: 150, y: 150, stepX: 100, stepY: 70 },
             });
-
-            seaweeds.children.iterate(function (child) {
+            seaweeds.children.iterate((child) => {
                 child.setScale(0.3);
                 child.setBounce(1);
             });
 
-            // Créer les requins
+            // Sharks
             sharks = this.physics.add.group({
-                key: 'shark',
-                repeat: 2,
-                setXY: { x: 700, y: 500, stepX: 200 },
+                key: "shark",
+                repeat: 3,
+                setXY: { x: 500, y: 300, stepX: 150 },
             });
-
-            sharks.children.iterate(function (child) {
-                child.setScale(0.5);
-                child.setVelocity(Phaser.Math.Between(-100, 100), Phaser.Math.Between(-100, 100));
+            sharks.children.iterate((child) => {
+                child.setScale(0.4);
+                child.setVelocity(
+                    Phaser.Math.Between(-100, 100),
+                    Phaser.Math.Between(-100, 100)
+                );
                 child.setBounce(1, 1);
                 child.setCollideWorldBounds(true);
             });
 
-            // Gestion des collisions
+            // Collisions
             this.physics.add.collider(player, maze);
             this.physics.add.collider(sharks, maze);
             this.physics.add.collider(seaweeds, maze);
             this.physics.add.collider(sharks, sharks);
 
-            // Collecter les herbes marines
+            // Overlaps
             this.physics.add.overlap(player, seaweeds, collectSeaweed, null, this);
-
-            // Collision avec les requins
             this.physics.add.overlap(player, sharks, hitShark, null, this);
 
-            // Gestion des touches
+            // Input
             cursors = this.input.keyboard.createCursorKeys();
         }
 
         function update() {
-            // Contrôler le joueur avec les touches fléchées
             if (cursors.left.isDown) {
                 player.setVelocityX(-200);
+                player.flipX = true;
             } else if (cursors.right.isDown) {
                 player.setVelocityX(200);
+                player.flipX = false;
             } else {
                 player.setVelocityX(0);
             }
@@ -142,98 +139,106 @@ const OceanGame = () => {
                 player.setVelocityY(0);
             }
 
-            // Faire chasser le requin
-            sharks.children.iterate(function (shark) {
-                this.physics.moveToObject(shark, player, 100);
-            }, this);
+            // Sharks chase the player and flip sprite based on direction
+            sharks.children.iterate((shark) => {
+                this.physics.moveToObject(shark, player, 120);
+
+                // Flip shark sprite
+                if (shark.body.velocity.x > 0) {
+                    shark.flipX = true; // Face left
+                } else if (shark.body.velocity.x < 0) {
+                    shark.flipX = false; // Face right
+                }
+            });
         }
 
-        function collectSeaweed(playerObj, seaweed) {
+
+
+        function collectSeaweed(player, seaweed) {
             seaweed.disableBody(true, true);
-            playerSize += 0.1; // Réduire l'augmentation de taille
+            playerSize += 0.05;
             player.setScale(playerSize);
         }
 
-        function hitShark(playerObj, shark) {
-            if (playerSize >= 1.5) { // Ajuster le seuil de taille pour manger le requin
-                // Le joueur a suffisamment grandi pour manger le requin
+        function hitShark(player, shark) {
+            if (playerSize >= 1.2) {
+                // Player can eat sharks
                 shark.disableBody(true, true);
-                playerSize += 0.3; // Réduire l'augmentation de taille
+                playerSize += 0.1;
                 player.setScale(playerSize);
             } else {
-                // Le requin mange le joueur, fin du jeu
+                // Game Over
                 this.physics.pause();
                 player.setTint(0xff0000);
-                if (isMounted.current) { // Vérifie si le composant est toujours monté
-                    setGameOver(true); // Déclencher la fin du jeu
-                }
+                setGameOver(true);
             }
         }
 
-        // Nettoyage lors du démontage du composant
+        // Cleanup
         return () => {
-            isMounted.current = false; // Le composant est démonté
-            game.destroy(true);
+            if (game) {
+                game.destroy(true);
+                game = null;
+            }
         };
-    }, [navigate]);
+    }, []);
 
-    const handleReturn = () => {
-        navigate('/');
-    };
+    const handleReturn = () => navigate("/");
 
     return (
-        <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
-            {/* Bouton pour revenir à la page principale */}
+        <div style={{ position: "relative", width: "100%", height: "100vh" }}>
+            {/* Navigation Button */}
             <button
-                onClick={() => navigate('/')}
+                onClick={handleReturn}
                 style={{
-                    position: 'absolute',
-                    top: '20px',
-                    left: '20px',
+                    position: "absolute",
+                    top: "20px",
+                    left: "20px",
                     zIndex: 1000,
-                    padding: '10px 20px',
-                    fontSize: '16px',
-                    backgroundColor: '#0077be',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
+                    padding: "10px 20px",
+                    fontSize: "16px",
+                    backgroundColor: "#0077be",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: "5px",
+                    cursor: "pointer",
                 }}
             >
                 Retour
             </button>
-            {/* Conteneur pour le jeu Phaser */}
-            <div id="game-container" style={{ width: '100%', height: '100%' }}></div>
 
-            {/* Modal de Game Over */}
+            {/* Game Container */}
+            <div id="game-container" style={{ width: "100%", height: "100%" }}></div>
+
+            {/* Game Over Modal */}
             {gameOver && (
                 <div
                     style={{
-                        position: 'fixed',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        color: '#fff',
-                        padding: '20px',
-                        borderRadius: '10px',
+                        position: "fixed",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                        backgroundColor: "rgba(0, 0, 0, 0.8)",
+                        color: "#fff",
+                        padding: "20px",
+                        borderRadius: "10px",
                         zIndex: 1001,
-                        textAlign: 'center',
+                        textAlign: "center",
                     }}
                 >
                     <h2>Game Over</h2>
-                    <p>Vous avez été mangé par le requin !</p>
+                    <p>Vous avez été mangé par un requin !</p>
                     <button
                         onClick={handleReturn}
                         style={{
-                            marginTop: '10px',
-                            padding: '10px 20px',
-                            fontSize: '16px',
-                            backgroundColor: '#0077be',
-                            color: '#fff',
-                            border: 'none',
-                            borderRadius: '5px',
-                            cursor: 'pointer',
+                            marginTop: "10px",
+                            padding: "10px 20px",
+                            fontSize: "16px",
+                            backgroundColor: "#0077be",
+                            color: "#fff",
+                            border: "none",
+                            borderRadius: "5px",
+                            cursor: "pointer",
                         }}
                     >
                         Retour

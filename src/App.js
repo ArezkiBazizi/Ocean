@@ -29,7 +29,7 @@ const App = () => {
                         <>
                             <Header />
                             {/* Arrière-plan océan */}
-                            {/*</>*/}
+                            <OceanScene />
                             <BodyParts />
                             <Footer />
                         </>
