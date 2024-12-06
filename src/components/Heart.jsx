@@ -25,10 +25,10 @@ const Heart = () => {
                     position: "absolute",
                     top: "23%",
                     left: "57%",
-                    width: isHovered ? "8%" : "7%", // Taille ajustée au hover
+                    width: isHovered ? "15%" : "8%", // Taille ajustée au hover
                     cursor: "pointer",
                     zIndex: 3,
-                    opacity: isHovered ? 0.8 : 0.4, // Opacité augmentée au hover
+                    opacity: isHovered ? 1 : 0.4, // Opacité augmentée au hover
                     transform: isHovered ? "scale(1.1)" : "scale(1)", // Zoom au hover
                     transition: "all 0.3s ease-in-out", // Transition fluide
                 }}
@@ -56,10 +56,10 @@ const Heart = () => {
             <InteractiveCard
                 isVisible={isCardVisible}
                 title="Cœur & Océans"
-                image={Ocean}
+                image={heartImage}
                 description="Le cœur pompe le sang pour le distribuer dans tout le corps,
                  tout comme les courants marins régulent la température de la Terre."
-                audio="https://www.example.com/podcast.mp3" // Lien vers le podcast
+                // audio="https://www.example.com/podcast.mp3" // Lien vers le podcast
                 onClose={handleCardClose}
             />
 

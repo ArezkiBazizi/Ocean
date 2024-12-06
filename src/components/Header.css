@@ -1,0 +1,73 @@
+/* Style général du header */
+.header {
+    background-color: none; /* Couleur principale */
+    color: #ffffff; /* Texte blanc */
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Conteneur principal */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Liens de navigation */
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links li a:hover {
+    color: #00bcd4; /* Couleur hover */
+}
+
+/* Logo à droite */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px; /* Ajustez la taille du logo */
+    width: auto;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        height: 40px;
+    }
+}

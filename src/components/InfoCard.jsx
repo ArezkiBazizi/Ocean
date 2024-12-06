@@ -6,7 +6,7 @@ const InfoCard = ({ title, description, image, isVisible }) => {
         <div
             style={{
                 position: "fixed",
-                top: "10px", // Toujours fixé en haut
+                top: "10%", // Toujours fixé en haut
                 left: "10px", // Toujours aligné à gauche
                 width: "300px",
                 padding: "15px 20px",
