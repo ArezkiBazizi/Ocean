@@ -8,8 +8,8 @@ const Header = () => {
             <div className="header-container">
                 <nav className="nav">
                     <ul className="nav-links">
-                        <li><a href="#about">Podcast</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="podcasts">Podcast</a></li>
+                        <li><a href="contact">Contact</a></li>
                     </ul>
                 </nav>
                 <div className="logo-container">

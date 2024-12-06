@@ -1,0 +1,80 @@
+/* Style global de la page Podcasts */
+.podcast-page {
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(145deg, #0077be, #004d73);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
+
+.podcast-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.podcast-logo {
+    width: 80px;
+    height: 80px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.podcast-logo:hover {
+    opacity: 1;
+}
+
+.podcast-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+    margin-left: -80px; /* Centrer par rapport au logo */
+}
+
+.podcast-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.podcast-card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #00bcd4;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.podcast-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+.podcast-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.podcast-card-description {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.podcast-audio {
+    width: 100%;
+    outline: none;
+}
