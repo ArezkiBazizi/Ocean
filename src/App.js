@@ -38,8 +38,18 @@ const App = () => {
                     }
                 />
                 <Route path="/ocean-game" element={<OceanGame />} />
-                <Route path="/podcast" element={<PodcastPage />} />
-                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/podcast" element={<>
+                    <OceanScene />
+                    <PodcastPage />
+                </>
+                }
+                />
+                <Route path="/contact" element={<>
+                    <OceanScene />
+                    <ContactPage />
+                </>
+                }
+                />
             </Routes>
         </div>
     );
