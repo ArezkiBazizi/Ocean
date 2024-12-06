@@ -38,7 +38,7 @@ const App = () => {
                     }
                 />
                 <Route path="/ocean-game" element={<OceanGame />} />
-                <Route path="/podcasts" element={<PodcastPage />} />
+                <Route path="/podcast" element={<PodcastPage />} />
                 <Route path="/contact" element={<ContactPage />} />
             </Routes>
         </div>

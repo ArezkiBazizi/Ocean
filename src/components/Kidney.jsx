@@ -25,7 +25,7 @@ const Kidney = () => {
                 style={{
                     position: "absolute",
                     top: "38%",
-                    left: "55%",
+                    left: "54%",
                     width: isHovered ? "15%" : "9%",
                     cursor: "pointer",
                     zIndex: 3,

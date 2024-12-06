@@ -24,8 +24,8 @@ const Heart = () => {
                 style={{
                     position: "absolute",
                     top: "23%",
-                    left: "57%",
-                    width: isHovered ? "15%" : "8%", // Taille ajustée au hover
+                    left: "56%",
+                    width: isHovered ? "15%" : "7%", // Taille ajustée au hover
                     cursor: "pointer",
                     zIndex: 3,
                     opacity: isHovered ? 1 : 0.4, // Opacité augmentée au hover

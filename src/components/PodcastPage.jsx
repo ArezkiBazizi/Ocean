@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../assets/logo.png";
 import AudioFile from "../audio/audio.mp3";
+import Header from "../components/Header"; // Importez votre header
+import Footer from "../components/Footer"; // Importez votre footer
 import "./SharedStyles.css";
 
 const podcasts = [
@@ -24,20 +26,19 @@ const PodcastPage = () => {
 
     return (
         <div className="page-container">
-            {/* Header */}
-            <header className="shared-header">
-                <img src={Logo} alt="Logo" className="shared-logo" />
-                <h1 className="shared-title">Podcasts</h1>
-                <button
-                    onClick={() => navigate("/")}
-                    className="shared-button"
-                >
-                    Retour à l'accueil
-                </button>
-            </header>
+            {/* Utilisation du Header personnalisé */}
+            <Header />
 
-            {/* Main Content */}
+            {/* Contenu principal */}
             <main className="shared-content">
+                <div className="shared-header">
+                    <button
+                        onClick={() => navigate("/")}
+                        className="shared-button"
+                    >
+                        Retour à l'accueil
+                    </button>
+                </div>
                 {podcasts.map((podcast) => (
                     <div key={podcast.id} className="shared-card">
                         <h2 className="shared-card-title">{podcast.title}</h2>
@@ -50,10 +51,8 @@ const PodcastPage = () => {
                 ))}
             </main>
 
-            {/* Footer */}
-            <footer className="shared-footer">
-                <p>© 2024 Ocean & Climate. Tous droits réservés.</p>
-            </footer>
+            {/* Utilisation du Footer personnalisé */}
+            <Footer />
         </div>
     );
 };

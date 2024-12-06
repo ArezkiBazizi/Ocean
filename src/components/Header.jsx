@@ -1,19 +1,36 @@
-import React from 'react';
-import './Header.css'; // Import du fichier CSS pour le style
-import logo from '../assets/logo.png'; // Remplacez par le chemin vers votre logo
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Header.css';
+import Logo from "../assets/logo.png"
+
 
 const Header = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
         <header className="header">
-            <div className="header-container">
-                <nav className="nav">
+            <div className="container">
+                {/* Navigation principale */}
+                <nav className={`nav ${isMenuOpen ? 'show' : ''}`}>
                     <ul className="nav-links">
-                        <li><a href="podcasts">Podcast</a></li>
-                        <li><a href="contact">Contact</a></li>
+                        <li><Link to="/podcast">Podcast</Link></li>
+                        <li><Link to="/contact">Contact</Link></li>
                     </ul>
                 </nav>
-                <div className="logo-container">
-                    <img src={logo} alt="Ocean Climate Logo" className="logo" />
+
+                <Link to="/">
+                    <img src={Logo} alt="Logo" />
+                </Link>
+
+                {/* Hamburger menu pour mobile */}
+                <div className="hamburger" onClick={toggleMenu}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </header>

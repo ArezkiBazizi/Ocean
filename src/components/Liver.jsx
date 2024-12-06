@@ -25,7 +25,7 @@ const Liver = () => {
                 style={{
                     position: "absolute",
                     top: "38%",
-                    left: "41%",
+                    left: "40%",
                     width: isHovered ? "20%" : "12%",
                     cursor: "pointer",
                     zIndex: 3,

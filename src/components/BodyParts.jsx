@@ -13,12 +13,15 @@ const BodyParts = () => {
     return (
         <div
             style={{
-                position: "relative", // Positionnement relatif pour les enfants absolus
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
                 width: "100%",
-                maxWidth: "350px", // Ajustez selon vos besoins
-                margin: "0 auto", // Centrer le conteneur
+                maxWidth: "400px",
                 height: "auto",
-                top: "10%", // Position verticale
+                margin: "auto",
+                padding: "20px", // Espacement interne
             }}
         >
             {/* Image principale du corps humain */}

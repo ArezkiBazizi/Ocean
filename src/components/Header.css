@@ -1,85 +1,118 @@
-/* Style général du header */
-.header {
-    background: none; /* Couleurs de fond avec un dégradé élégant */
-    color: #ffffff; /* Texte blanc */
-    padding: 15px 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ombre plus profonde pour le header */
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: 'Poppins', sans-serif;
+/* Style général */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: none; /* Pour un look futuriste sombre */
+    color: #fff;
 }
 
-/* Conteneur principal */
-.header-container {
+.header {
+    background: none;
+    backdrop-filter: blur(10px); /* Effet flou futuriste */
+    color: #fff;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s ease-in-out;
+}
+
+.container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Liens de navigation */
+img {
+    width: 20%;
+    transition: transform 0.4s;
+}
+
+.logo img:hover {
+    transform: scale(1.2); /* Zoom léger au survol */
+}
+
 .nav {
     display: flex;
-    align-items: center;
+    flex-grow: 1;
+    justify-content: space-evenly; /* Espacement uniforme des éléments */
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 30px; /* Plus d'espacement entre les liens */
     margin: 0;
     padding: 0;
 }
 
 .nav-links li {
-    display: inline-block;
+    display: block;
 }
 
-.nav-links li a {
-    color: #ffffff;
+.nav-links a {
     text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    letter-spacing: 0.5px;
-    transition: color 0.3s ease-in-out, transform 0.2s ease;
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease-in-out;
 }
 
-.nav-links li a:hover {
-    color: #00e0ff; /* Couleur hover */
-    transform: scale(1.05); /* Légère mise en avant */
+.nav-links a:hover {
+    color: #00d1ff; /* Couleur futuriste brillante */
 }
 
-/* Logo à droite */
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    height: 50px; /* Taille ajustée pour le logo */
-    width: auto;
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    gap: 5px;
 }
 
-.logo:hover {
-    transform: scale(1.1); /* Zoom léger sur le logo */
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s;
 }
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-    .nav-links {
+/* Animation pour le menu hamburger */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
         flex-direction: column;
-        gap: 15px;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        padding: 20px 0;
     }
 
-    .logo {
-        height: 40px;
+    .nav.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
     }
 }
