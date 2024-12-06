@@ -20,8 +20,11 @@ const Lung = () => {
     };
 
     const info = {
-        title: "Poumons",
-        description: "Responsables de la respiration et de l'oxygénation du sang.",
+        title: "Poumons & Océans",
+        description: `Les poumons échangent des gaz essentiels pour la vie. De même, 
+                les océans produisent 50% de l'oxygène grâce au phytoplancton et absorbent 
+                30% du CO₂ émis par l'homme. Protéger les océans, c'est préserver 
+                la respiration de notre planète.`,
     };
 
     return (

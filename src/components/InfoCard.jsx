@@ -1,29 +1,27 @@
-// src/components/InfoCard.js
 import React from "react";
 import { createPortal } from "react-dom";
 
-const InfoCard = ({ title, description, isVisible }) => {
-    if (!isVisible) return null;
-
+const InfoCard = ({ title, description, image, isVisible }) => {
     return createPortal(
         <div
             style={{
-                position: "fixed", // Position fixe par rapport à la fenêtre
-                top: "10px", // Positionné en haut
-                left: "10px", // Positionné à gauche
-                width: "250px",
+                position: "fixed",
+                top: "10px", // Toujours fixé en haut
+                left: "10px", // Toujours aligné à gauche
+                width: "300px",
                 padding: "15px 20px",
                 background: "linear-gradient(145deg, #0077be, #004d73)",
                 border: "2px solid #00bcd4",
                 borderRadius: "12px",
-                boxShadow: "0 8px 20px rgba(0, 0, 0, 0.3)",
-                zIndex: 1000, // Assurez-vous qu'il est au-dessus de tout
+                boxShadow: isVisible
+                    ? "0 10px 30px rgba(0, 0, 0, 0.5), inset 0 4px 10px rgba(255, 255, 255, 0.2)"
+                    : "0 8px 20px rgba(0, 0, 0, 0.3)", // Ombres plus fortes lorsqu'elles sont visibles
+                zIndex: 1000,
                 color: "#ffffff",
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateY(0)" : "translateY(-100%)",
-                transition: "all 0.5s ease-in-out",
+                transform: isVisible ? "translateY(0)" : "translateY(-50px)", // Descente et montée
+                opacity: isVisible ? 1 : 0, // Gestion de l'opacité
+                transition: "transform 0.5s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.3s ease-in-out", // Animation fluide
                 fontFamily: "'Poppins', sans-serif",
-                backgroundSize: "cover",
                 overflow: "hidden",
             }}
         >
@@ -34,52 +32,38 @@ const InfoCard = ({ title, description, isVisible }) => {
                             margin: "0 0 10px",
                             fontSize: "1.5em",
                             fontWeight: "bold",
-                            textShadow: "0 2px 4px rgba(0, 0, 0, 0.5)",
+                            textShadow: "0 2px 4px rgba(0, 0, 0, 0.5)", // Ombre légère pour le texte
                         }}
                     >
                         {title}
                     </h4>
+                    {image && (
+                        <img
+                            src={image}
+                            alt={title}
+                            style={{
+                                width: "100%",
+                                height: "auto",
+                                borderRadius: "8px",
+                                marginBottom: "10px",
+                                boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)", // Ombre pour l'image
+                            }}
+                        />
+                    )}
                     <p
                         style={{
                             margin: 0,
                             fontSize: "1em",
                             lineHeight: "1.5",
-                            textShadow: "0 1px 3px rgba(0, 0, 0, 0.3)",
+                            textShadow: "0 1px 3px rgba(0, 0, 0, 0.3)", // Ombre légère pour le texte
                         }}
                     >
                         {description}
                     </p>
                 </>
             )}
-            {/* Ajout de bulles décoratives */}
-            <div
-                style={{
-                    position: "absolute",
-                    top: "10%",
-                    right: "-20px",
-                    width: "60px",
-                    height: "60px",
-                    backgroundColor: "rgba(255, 255, 255, 0.2)",
-                    borderRadius: "50%",
-                    filter: "blur(10px)",
-                    animation: "bubble 6s infinite",
-                }}
-            ></div>
-            <div
-                style={{
-                    position: "absolute",
-                    top: "30%",
-                    right: "-30px",
-                    width: "40px",
-                    height: "40px",
-                    backgroundColor: "rgba(255, 255, 255, 0.15)",
-                    borderRadius: "50%",
-                    filter: "blur(8px)",
-                    animation: "bubble 8s infinite",
-                }}
-            ></div>
         </div>,
-        document.body // Rend le tooltip dans le body
+        document.body
     );
 };
 

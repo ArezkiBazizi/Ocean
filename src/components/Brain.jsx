@@ -1,6 +1,7 @@
 // src/components/Brain.js
 import React from "react";
 import brainImage from "../assets/brain.png"; // Assurez-vous que le chemin est correct
+import Ocean from "../assets/ocean.png"; //
 import Organ from "./Organ";
 
 const Brain = () => {
@@ -20,8 +21,11 @@ const Brain = () => {
     };
 
     const info = {
-        title: "Cerveau",
-        description: "Le centre de contrôle du corps humain.",
+            title: "Cerveau & Océans",
+            description: `Le cerveau coordonne les fonctions vitales du corps humain, 
+            tout comme les océans influencent les conditions météorologiques mondiales. 
+            En absorbant et redistribuant la chaleur, ils stabilisent le climat.`,
+            image: Ocean,
     };
 
     return (

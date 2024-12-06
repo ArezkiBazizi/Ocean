@@ -1,4 +1,3 @@
-// src/components/Organ.js
 import React, { useState } from "react";
 import InfoCard from "./InfoCard";
 
@@ -33,6 +32,7 @@ const Organ = ({ image, alt, initialStyles, hoverStyles, info }) => {
             <InfoCard
                 title={info.title}
                 description={info.description}
+                image={info.image}
                 isVisible={isHovered}
             />
         </div>

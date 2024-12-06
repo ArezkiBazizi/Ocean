@@ -21,7 +21,8 @@ const Kidney = () => {
 
     const info = {
         title: "Reins",
-        description: "Netoie le sang à travers le corps.",
+        description:
+            "Les reins filtrent et maintiennent l'équilibre hydrique. De la même manière, les océans jouent un rôle crucial dans le cycle de l'eau, régulant les précipitations et le stockage de chaleur. Leur préservation garantit l'équilibre climatique mondial.",
     };
 
     return (
