@@ -9,7 +9,12 @@ const OceanScene = () => {
     const containerRef = useRef(null);
 
     useEffect(() => {
-        let camera, scene, renderer, water, sun;
+        let camera, scene, renderer, water, sun, controls;
+        const baseTarget = new THREE.Vector3(0, 10, 0);
+        let targetX = 0;
+        let currentX = 0;
+        const lerpSpeed = 0.05;
+        const maxOffset = 5; // Définissez la limite maximale du déplacement de la cible
 
         const init = () => {
             const container = containerRef.current;
@@ -27,7 +32,7 @@ const OceanScene = () => {
             camera.position.set(30, 30, 100);
 
             // Renderer
-            renderer = new THREE.WebGLRenderer();
+            renderer = new THREE.WebGLRenderer({ antialias: true });
             renderer.setPixelRatio(window.devicePixelRatio);
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -89,20 +94,37 @@ const OceanScene = () => {
             updateSun();
 
             // Orbit Controls
-            const controls = new OrbitControls(camera, renderer.domElement);
+            controls = new OrbitControls(camera, renderer.domElement);
             controls.maxPolarAngle = Math.PI * 0.495;
-            controls.target.set(0, 10, 0);
+            controls.target.copy(baseTarget);
             controls.minDistance = 40.0;
             controls.maxDistance = 200.0;
+            controls.enableDamping = true; // Pour une interpolation fluide
+            controls.dampingFactor = 0.05;
             controls.update();
+
+            // Écouteurs pour la souris
+            window.addEventListener("mousemove", onMouseMove);
 
             // Redimensionnement
             window.addEventListener("resize", onWindowResize);
 
             const animate = () => {
-                water.material.uniforms["time"].value += 1.0 / 60.0;
-                renderer.render(scene, camera);
                 requestAnimationFrame(animate);
+
+                // Mise à jour du temps pour l'eau
+                if (water.material.uniforms["time"]) {
+                    water.material.uniforms["time"].value += 1.0 / 60.0;
+                }
+
+                // Interpolation de la position X de la cible
+                currentX += (targetX - currentX) * lerpSpeed;
+
+                // Mise à jour de la cible des contrôles
+                controls.target.x = baseTarget.x + currentX;
+                controls.update();
+
+                renderer.render(scene, camera);
             };
 
             animate();
@@ -114,10 +136,18 @@ const OceanScene = () => {
             renderer.setSize(window.innerWidth, window.innerHeight);
         };
 
+        const onMouseMove = (event) => {
+            // Normaliser la position X de la souris entre -1 et 1
+            const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            // Définir une cible de déplacement maximale, par exemple ±5 unités
+            targetX = mouseX * maxOffset;
+        };
+
         init();
 
         return () => {
             window.removeEventListener("resize", onWindowResize);
+            window.removeEventListener("mousemove", onMouseMove);
             if (containerRef.current) {
                 containerRef.current.innerHTML = "";
             }
@@ -133,7 +163,7 @@ const OceanScene = () => {
                 left: 0,
                 width: "100%",
                 height: "100%",
-                zIndex: 1, // Assurez-vous que ceci est derrière les autres éléments
+                zIndex: 0, // Assurez-vous que ceci est derrière les autres éléments
                 pointerEvents: "none", // Évite de capturer les clics
             }}
         />

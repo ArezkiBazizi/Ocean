@@ -1,32 +1,37 @@
+// src/components/BodyParts.js
 import React from "react";
 import Head from "./Head";
 import Heart from "./Heart";
 import HumanModel from "./HumanModel";
 import Lung from "./Lung";
 import Brain from "./Brain";
-
+import Intestin from "./Intestin";
+import Kidney from "./Kidney";
 
 const BodyParts = () => {
     return (
         <div
             style={{
-                position: "relative", // Important pour aligner les parties du corps
+                position: "relative", // Positionnement relatif pour les enfants absolus
                 width: "100%",
-                height: "100vh",
-                zIndex: 2, // Assurez-vous que c'est supérieur au z-index d'OceanBackground
+                maxWidth: "350px", // Ajustez selon vos besoins
+                margin: "0 auto", // Centrer le conteneur
+                height: "auto",
+                top: "10%", // Position verticale
             }}
         >
-            {/* Autres parties du corps */}
+            {/* Image principale du corps humain */}
+            <HumanModel />
+
+            {/* Organes superposés */}
             <Head />
             <Heart />
             <Lung />
             <Brain />
-            <HumanModel />
+            <Intestin />
+            <Kidney />
         </div>
     );
 };
 
 export default BodyParts;
-
-
-

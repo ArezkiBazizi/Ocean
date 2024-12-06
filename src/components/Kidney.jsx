@@ -1,13 +1,13 @@
 // src/components/Heart.js
 import React from "react";
-import heartImage from "../assets/heart.png"; // Assurez-vous que le chemin est correct
+import KidneyImage from "../assets/kidney.png"; // Assurez-vous que le chemin est correct
 import Organ from "./Organ";
 
-const Heart = () => {
+const Kidney = () => {
     const initialStyles = {
-        top: "26%", // Position verticale relative
+        top: "41%", // Position verticale relative
         left: "60%", // Position horizontale relative
-        width: "8%", // Taille initiale
+        width: "9%", // Taille initiale
         zIndex: 3,
         opacity: 0.5,
         transform: "translate(-50%, -50%)",
@@ -20,14 +20,14 @@ const Heart = () => {
     };
 
     const info = {
-        title: "Cœur",
-        description: "Pompe le sang à travers le corps.",
+        title: "Reins",
+        description: "Netoie le sang à travers le corps.",
     };
 
     return (
         <Organ
-            image={heartImage}
-            alt="Heart"
+            image={KidneyImage}
+            alt="Kidney"
             initialStyles={initialStyles}
             hoverStyles={hoverStyles}
             info={info}
@@ -35,4 +35,4 @@ const Heart = () => {
     );
 };
 
-export default Heart;
+export default Kidney;

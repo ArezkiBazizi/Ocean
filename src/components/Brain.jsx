@@ -1,29 +1,36 @@
+// src/components/Brain.js
 import React from "react";
+import brainImage from "../assets/brain.png"; // Assurez-vous que le chemin est correct
 import Organ from "./Organ";
-import brainImage from "../assets/brain.png";
 
 const Brain = () => {
+    const initialStyles = {
+        top: "8.2%", // Position verticale relative
+        left: "49%", // Position horizontale relative
+        width: "14%", // Taille initiale
+        zIndex: 3,
+        opacity: 0.5,
+        transform: "translate(-50%, -50%)",
+    };
+
+    const hoverStyles = {
+        left: "47.5%",
+        width: "30%",
+        opacity: 1,
+    };
+
+    const info = {
+        title: "Cerveau",
+        description: "Le centre de contrôle du corps humain.",
+    };
+
     return (
         <Organ
             image={brainImage}
             alt="Brain"
-            initialStyles={{
-                position: "absolute",
-                top: "9.9%",
-                left: "48.2%",
-                width: "3.3%",
-                zIndex: 2,
-                opacity: "50%",
-            }}
-            hoverStyles={{
-                left: "46.5%",
-                width: "7%",
-                opacity: "100%",
-            }}
-            info={{
-                title: "Cerveau",
-                description: "Le cerveau est l'organe central du système nerveux.",
-            }}
+            initialStyles={initialStyles}
+            hoverStyles={hoverStyles}
+            info={info}
         />
     );
 };

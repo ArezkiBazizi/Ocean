@@ -1,3 +1,4 @@
+// src/components/Organ.js
 import React, { useState } from "react";
 import InfoCard from "./InfoCard";
 
@@ -12,7 +13,11 @@ const Organ = ({ image, alt, initialStyles, hoverStyles, info }) => {
 
     return (
         <div
-            style={styles}
+            style={{
+                position: "absolute",
+                ...styles,
+                cursor: "pointer",
+            }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
@@ -21,6 +26,7 @@ const Organ = ({ image, alt, initialStyles, hoverStyles, info }) => {
                 alt={alt}
                 style={{
                     width: "100%",
+                    height: "auto",
                     display: "block",
                 }}
             />
