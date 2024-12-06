@@ -1,7 +1,8 @@
 import React from "react";
-import Logo from "../assets/logo.png"; // Assurez-vous que le fichier logo.png est dans src/assets
-import AudioFile from "../audio/audio.mp3"; // Assurez-vous que le fichier audio.mp3 est dans src/assets
-import "./PodcastPage.css";
+import { useNavigate } from "react-router-dom";
+import Logo from "../assets/logo.png";
+import AudioFile from "../audio/audio.mp3";
+import "./SharedStyles.css";
 
 const podcasts = [
     {
@@ -19,24 +20,40 @@ const podcasts = [
 ];
 
 const PodcastPage = () => {
+    const navigate = useNavigate();
+
     return (
-        <div className="podcast-page">
-            <header className="podcast-header">
-                <img src={Logo} alt="Logo" className="podcast-logo" />
-                <h1 className="podcast-title">Podcasts sur les Océans</h1>
+        <div className="page-container">
+            {/* Header */}
+            <header className="shared-header">
+                <img src={Logo} alt="Logo" className="shared-logo" />
+                <h1 className="shared-title">Podcasts</h1>
+                <button
+                    onClick={() => navigate("/")}
+                    className="shared-button"
+                >
+                    Retour à l'accueil
+                </button>
             </header>
-            <main className="podcast-content">
+
+            {/* Main Content */}
+            <main className="shared-content">
                 {podcasts.map((podcast) => (
-                    <div key={podcast.id} className="podcast-card">
-                        <h2 className="podcast-card-title">{podcast.title}</h2>
-                        <p className="podcast-card-description">{podcast.description}</p>
-                        <audio controls className="podcast-audio">
+                    <div key={podcast.id} className="shared-card">
+                        <h2 className="shared-card-title">{podcast.title}</h2>
+                        <p className="shared-card-description">{podcast.description}</p>
+                        <audio controls className="shared-audio">
                             <source src={podcast.file} type="audio/mp3" />
                             Votre navigateur ne supporte pas le lecteur audio.
                         </audio>
                     </div>
                 ))}
             </main>
+
+            {/* Footer */}
+            <footer className="shared-footer">
+                <p>© 2024 Ocean & Climate. Tous droits réservés.</p>
+            </footer>
         </div>
     );
 };

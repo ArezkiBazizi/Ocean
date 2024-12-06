@@ -1,9 +1,9 @@
 /* Style général du header */
 .header {
-    background-color: none; /* Couleur principale */
+    background: none; /* Couleurs de fond avec un dégradé élégant */
     color: #ffffff; /* Texte blanc */
-    padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Ombre plus profonde pour le header */
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -32,20 +32,27 @@
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
     margin: 0;
     padding: 0;
+}
+
+.nav-links li {
+    display: inline-block;
 }
 
 .nav-links li a {
     color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease-in-out;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease-in-out, transform 0.2s ease;
 }
 
 .nav-links li a:hover {
-    color: #00bcd4; /* Couleur hover */
+    color: #00e0ff; /* Couleur hover */
+    transform: scale(1.05); /* Légère mise en avant */
 }
 
 /* Logo à droite */
@@ -55,16 +62,21 @@
 }
 
 .logo {
-    height: 60px; /* Ajustez la taille du logo */
+    height: 50px; /* Taille ajustée pour le logo */
     width: auto;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Zoom léger sur le logo */
 }
 
 /* Responsive */
 @media screen and (max-width: 768px) {
     .nav-links {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
     }
 
     .logo {

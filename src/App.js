@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Footer from "./components/Footer";
 import Konami from "react-konami-code";
 import PodcastPage from "./components/PodcastPage";
+import ContactPage from "./components/ContactPage";
 
 const App = () => {
     const navigate = useNavigate();
@@ -38,6 +39,7 @@ const App = () => {
                 />
                 <Route path="/ocean-game" element={<OceanGame />} />
                 <Route path="/podcasts" element={<PodcastPage />} />
+                <Route path="/contact" element={<ContactPage />} />
             </Routes>
         </div>
     );

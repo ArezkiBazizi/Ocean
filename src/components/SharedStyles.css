@@ -1,0 +1,126 @@
+/* Page container */
+.page-container {
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(145deg, #0077be, #004d73);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+/* Header */
+.shared-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.shared-logo {
+    width: 80px;
+    height: 80px;
+    opacity: 0.9;
+}
+
+.shared-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.shared-button {
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.shared-button:hover {
+    background-color: #0097a7;
+    transform: scale(1.05);
+}
+
+/* Main content */
+.shared-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.shared-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #00bcd4;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.shared-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+.shared-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.shared-card-description {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.shared-audio {
+    width: 100%;
+    outline: none;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #00bcd4;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #00bcd4;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #000;
+}
+
+.contact-form button {
+    align-self: center;
+}

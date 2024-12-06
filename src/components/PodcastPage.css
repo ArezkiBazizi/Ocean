@@ -1,4 +1,4 @@
-/* Style global de la page Podcasts */
+/* Page globale */
 .podcast-page {
     font-family: "Arial", sans-serif;
     background: linear-gradient(145deg, #0077be, #004d73);
@@ -10,17 +10,41 @@
     color: white;
 }
 
+/* En-tête */
 .podcast-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    position: relative;
     width: 100%;
     max-width: 1200px;
     margin-bottom: 40px;
-    padding: 0 20px;
+}
+
+/* Bouton retour */
+.return-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.return-button:hover {
+    background-color: #0097a7;
+    transform: scale(1.05);
 }
 
 .podcast-logo {
+    position : absolute;
+    right : 10%;
     width: 80px;
     height: 80px;
     opacity: 0.8;
@@ -36,9 +60,9 @@
     font-weight: bold;
     text-align: center;
     flex-grow: 1;
-    margin-left: -80px; /* Centrer par rapport au logo */
 }
 
+/* Contenu */
 .podcast-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
