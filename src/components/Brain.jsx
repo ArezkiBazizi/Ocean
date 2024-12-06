@@ -25,7 +25,6 @@ const Brain = () => {
             description: `Le cerveau coordonne les fonctions vitales du corps humain, 
             tout comme les océans influencent les conditions météorologiques mondiales. 
             En absorbant et redistribuant la chaleur, ils stabilisent le climat.`,
-            image: Ocean,
     };
 
     return (

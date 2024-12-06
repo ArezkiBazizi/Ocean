@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./InteractiveCard.css";
 
-const InteractiveCard = ({ isVisible, title, image, description, onClose }) => {
+const InteractiveCard = ({ isVisible, title, image, description, audio, onClose }) => {
     const [style, setStyle] = useState({});
     const cardRef = useRef(null);
+    const audioRef = useRef(null);
 
     const handleMouseMove = (e) => {
         const card = cardRef.current;
@@ -33,6 +34,13 @@ const InteractiveCard = ({ isVisible, title, image, description, onClose }) => {
         });
     };
 
+    useEffect(() => {
+        // Joue le podcast à l'ouverture de la carte
+        if (isVisible && audioRef.current) {
+            audioRef.current.play();
+        }
+    }, [isVisible]);
+
     if (!isVisible) return null;
 
     return (
@@ -51,6 +59,16 @@ const InteractiveCard = ({ isVisible, title, image, description, onClose }) => {
                     <h2 className="card-title">{title}</h2>
                     {image && <img src={image} alt={title} className="card-image" />}
                     <p className="card-description">{description}</p>
+                    {audio && (
+                        <audio
+                            ref={audioRef}
+                            src={audio}
+                            controls
+                            style={{ marginTop: "15px", width: "100%" }}
+                        >
+                            Your browser does not support the audio element.
+                        </audio>
+                    )}
                 </div>
             </div>
         </div>

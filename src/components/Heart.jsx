@@ -55,11 +55,14 @@ const Heart = () => {
             {/* Affichage de la InteractiveCard au clic */}
             <InteractiveCard
                 isVisible={isCardVisible}
-                title={info.title}
-                image={info.image}
-                description={info.description}
+                title="Cœur & Océans"
+                image={Ocean}
+                description="Le cœur pompe le sang pour le distribuer dans tout le corps,
+                 tout comme les courants marins régulent la température de la Terre."
+                audio="https://www.example.com/podcast.mp3" // Lien vers le podcast
                 onClose={handleCardClose}
             />
+
         </>
     );
 };
