@@ -49,8 +49,16 @@ Ce projet est une application web interactive qui propose :
 ---
 
 ## 📂 **Structure du projet**
-ocean/ ├── src/ │ ├── components/ # Composants React (Quiz, QuizCard, etc.) │ ├── assets/ # Images et autres fichiers statiques │ ├── data/ # Données du quiz et autres fichiers JSON │ └── styles/ # Fichiers CSS ├── public/ # Fichiers publics (index.html, favicon, etc.) ├── README.md # Documentation du projet ├── package.json # Dépendances et scripts └── .gitignore # Fichiers et dossiers à exclure de Git
-
+ocean/
+├── src/                     # Code source de l'application
+│   ├── components/          # Composants React (Quiz, QuizCard, etc.)
+│   ├── assets/              # Images et autres fichiers statiques
+│   ├── data/                # Données du quiz et autres fichiers JSON
+│   └── styles/              # Fichiers CSS
+├── public/                  # Fichiers publics (index.html, favicon, etc.)
+├── README.md                # Documentation du projet
+├── package.json             # Dépendances et scripts
+└── .gitignore               # Fichiers et dossiers à exclure de Git
 
 ---
 
@@ -76,19 +84,24 @@ ocean/ ├── src/ │ ├── components/ # Composants React (Quiz, QuizCa
 4.Lancez l'application en mode développement :
     ```bash
     npm start
+    
 5.Ouvrez votre navigateur à l'adresse :
     ```arduino
     http://localhost:3000
-
+    
+---
 
 ### 🧑‍💻 Auteur
 Arezki Bazizi
-
 Email : baziziarezki@gmail.com
 GitHub : Votre Profil GitHub
 
+---
+
 ###📜 Licence
 Ce projet est sous licence MIT. Vous êtes libre de l'utiliser, le modifier et le distribuer.
+
+---
 
 ###🌟 Remerciements
 Merci à toutes les personnes et ressources qui ont contribué à ce projet, spécialement mon co-équipier Sylvain. 
