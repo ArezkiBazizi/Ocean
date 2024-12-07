@@ -28,7 +28,7 @@ const Lung = () => {
                     left: isHovered ? "20%" : "32%",
                     width: isHovered ? "60%" : "34%",
                     cursor: "pointer",
-                    zIndex: 2,
+                    zIndex: 3,
                     opacity: isHovered ? 1 : 0.5,
                     transform: isHovered ? "scale(1.1)" : "scale(1)",
                     transition: "all 0.3s ease-in-out",

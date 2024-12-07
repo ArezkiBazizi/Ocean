@@ -8,6 +8,7 @@ import Brain from "./Brain";
 import Intestin from "./Intestin";
 import Kidney from "./Kidney";
 import Liver from "./Liver";
+import Stomach from "./Stomach";
 
 const BodyParts = () => {
     return (
@@ -35,6 +36,7 @@ const BodyParts = () => {
             <Intestin />
             <Kidney />
             <Liver />
+            <Stomach />
         </div>
     );
 };

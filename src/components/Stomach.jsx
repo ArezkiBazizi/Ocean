@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import LiverImage from "../assets/liver.png"; // Assurez-vous que le chemin est correct
+import stomachImage from "../assets/stomach.png"; // Assurez-vous que le chemin est correct
 import InteractiveCard from "./InteractiveCard";
 import InfoCard from "./InfoCard";
 
-const Liver = () => {
+const Stomach = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isCardVisible, setIsCardVisible] = useState(false);
 
@@ -11,12 +11,13 @@ const Liver = () => {
     const handleCardClose = () => setIsCardVisible(false);
 
     const info = {
-        title: "Foie & Océans",
-        description: `Le foie filtre les toxines et maintient l'équilibre interne du corps humain. 
-        De même, les océans absorbent une grande partie des polluants humains, 
-        mais leur capacité est limitée. Protéger les océans, c'est préserver leur 
-        rôle essentiel dans la régulation écologique.`,
-        image: LiverImage,
+        title: "Estomac & Océans",
+        description: `L'estomac transforme les aliments pour fournir l'énergie nécessaire au corps. 
+            De manière similaire, les océans jouent un rôle crucial dans le stockage et la redistribution 
+            de l'énergie solaire à travers les courants marins. Ils absorbent également une partie des 
+            impacts environnementaux comme le CO₂, mais cette capacité a des limites, tout comme l'estomac 
+            face à une alimentation excessive.`,
+        image: stomachImage,
     };
 
     return (
@@ -24,22 +25,22 @@ const Liver = () => {
             <div
                 style={{
                     position: "absolute",
-                    top: "38%",
-                    left: "40%",
-                    width: isHovered ? "20%" : "12%",
+                    top: isHovered ? "20%" : "28%",
+                    left: isHovered ? "30%" : "39%",
+                    width: isHovered ? "40%" : "20%",
                     cursor: "pointer",
-                    zIndex: 5,
                     opacity: isHovered ? 1 : 0.5,
                     transform: isHovered ? "scale(1.1)" : "scale(1)",
                     transition: "all 0.3s ease-in-out",
+                    zIndex: 3,
                 }}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 onClick={handleCardOpen}
             >
                 <img
-                    src={LiverImage}
-                    alt="Kidney"
+                    src={stomachImage}
+                    alt="Stomach"
                     style={{
                         width: "100%",
                         height: "auto",
@@ -63,4 +64,4 @@ const Liver = () => {
     );
 };
 
-export default Liver;
+export default Stomach;

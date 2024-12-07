@@ -27,7 +27,7 @@ const Heart = () => {
                     left: "56%",
                     width: isHovered ? "15%" : "7%", // Taille ajustée au hover
                     cursor: "pointer",
-                    zIndex: 3,
+                    zIndex: 4,
                     opacity: isHovered ? 1 : 0.4, // Opacité augmentée au hover
                     transform: isHovered ? "scale(1.1)" : "scale(1)", // Zoom au hover
                     transition: "all 0.3s ease-in-out", // Transition fluide
