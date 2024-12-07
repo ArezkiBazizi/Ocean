@@ -48,20 +48,6 @@ Ce projet est une application web interactive qui propose :
 
 ---
 
-## 📂 **Structure du projet**
-ocean/
-├── src/                     # Code source de l'application
-│   ├── components/          # Composants React (Quiz, QuizCard, etc.)
-│   ├── assets/              # Images et autres fichiers statiques
-│   ├── data/                # Données du quiz et autres fichiers JSON
-│   └── styles/              # Fichiers CSS
-├── public/                  # Fichiers publics (index.html, favicon, etc.)
-├── README.md                # Documentation du projet
-├── package.json             # Dépendances et scripts
-└── .gitignore               # Fichiers et dossiers à exclure de Git
-
----
-
 ## 📦 **Installation**
 
 ### Prérequis
