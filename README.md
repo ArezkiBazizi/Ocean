@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# 🌊 **Ocean Interactive Platform**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bienvenue dans le dépôt de **Ocean Interactive Platform** ! Ce projet vise à sensibiliser les utilisateurs sur l'importance des océans à travers une plateforme interactive, informative et ludique.
+Le projet a été créer en une seule nuit pendant *la nuit de l'informatique* édition 2024
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📝 **Description**
 
-### `npm start`
+Ce projet est une application web interactive qui propose :
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🎨 **Design dynamique** : Une interface responsive avec des cartes interactives, des arrière-plans 3D dynamiques et une UX optimisée.
+- 🎯 **Quiz éducatif** : Un module de quiz pour tester et enrichir vos connaissances sur le rôle et l'importance des océans.
+- 🔗 **Pages additionnelles** :
+  - **Podcast** : Une page dédiée à des contenus audio pour approfondir vos connaissances.
+  - **Contact** : Une section pour entrer en contact avec les administrateurs du projet.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 **Fonctionnalités**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🎓 **Module de Quiz**
+- Questions éducatives sur les océans.
+- Résultat interactif avec score final.
+- Explications après chaque réponse pour favoriser l'apprentissage.
 
-### `npm run build`
+### 💻 **Design Responsive**
+- Interface interactive et éducative. 
+- Support mobile, tablette et desktop.
+- Optimisation pour une expérience utilisateur fluide.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🌐 **Pages dynamiques**
+- **Podcast** : Découverte des podcasts sur la biodiversité marine et les enjeux environnementaux.
+- **Contact** : Formulaire de contact interactif.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🌐 **Jeux caché**
+- **Konami Code** : Un jeu bonus a été caché dans la page, accesible via de le combo de touche suivant : Haut, Haut, Bas, Bas, Gauche, Droite, Gauche, Droite, B, A. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🛠️ **Technologies utilisées**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Frontend** :
+  - React.js
+  - Three.js
+- **Gestion des versions** :
+  - Git et GitHub : Suivi des modifications et collaboration.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📦 **Installation**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Prérequis
+- **Node.js** (v14 ou supérieur)
+- **npm** ou **yarn**
 
-## Learn More
+### Étapes
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/votre-utilisateur/ocean.git
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2.Naviguez dans le répertoire du projet :
+    ```bash
+    cd ocean
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3.Installez les dépendances :
+    ```bash
+    npm install
 
-### Code Splitting
+4.Lancez l'application en mode développement :
+    ```bash
+    npm start
+    
+5.Ouvrez votre navigateur à l'adresse :
+    ```arduino
+    http://localhost:3000
+    
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 🧑‍💻 Auteur
+Arezki Bazizi
+Email : baziziarezki@gmail.com
+GitHub : Votre Profil GitHub
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+###📜 Licence
+Ce projet est sous licence Apache 2.0. Consultez le fichier LICENSE pour plus de détails.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+###🌟 Remerciements
+Merci à toutes les personnes et ressources qui ont contribué à ce projet, spécialement mon co-équipier Sylvain. 
+Ensemble, protégeons nos océans ! 🌊
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
