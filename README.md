@@ -85,7 +85,7 @@ GitHub : Votre Profil GitHub
 ---
 
 ###📜 Licence
-Ce projet est sous licence MIT. Vous êtes libre de l'utiliser, le modifier et le distribuer.
+Ce projet est sous licence Apache 2.0. Consultez le fichier LICENSE pour plus de détails.
 
 ---
 
