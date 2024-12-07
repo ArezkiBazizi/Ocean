@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Quiz.css"; // Importez le fichier CSS
 
 const Quiz = ({ questions = [], onFinish }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -63,5 +64,4 @@ const Quiz = ({ questions = [], onFinish }) => {
     );
 };
 
-// Exportation par défaut
 export default Quiz;
