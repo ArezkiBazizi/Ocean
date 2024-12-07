@@ -23,9 +23,9 @@ const Brain = () => {
             <div
                 style={{
                     position: "absolute",
-                    top: "8%",
-                    left: isHovered ? "40%" : "43%",
-                    width: isHovered ? "30%" : "13%",
+                    top: isHovered ? "4%" : "8%",
+                    left: isHovered ? "39%" : "43%",
+                    width: isHovered ? "25%" : "13%",
                     cursor: "pointer",
                     zIndex: 3,
                     opacity: isHovered ? 1 : 0.5,

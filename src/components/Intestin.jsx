@@ -42,8 +42,8 @@ const Intestin = () => {
             style={{
                 position: "absolute",
                 top: "33%",
-                left: isHovered ? "35%" : "36%",
-                width: isHovered ? "29%" : "29%",
+                left: isHovered ? "33%" : "35%",
+                width: isHovered ? "36%" : "29%",
                 cursor: "pointer",
                 zIndex: 3,
                 opacity: isHovered ? 1 : 0.5,

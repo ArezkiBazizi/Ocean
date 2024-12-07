@@ -95,3 +95,19 @@
     color: #b2ebf2;
     font-style: italic;
 }
+
+.restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077be;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.restart-button:hover {
+    background-color: #005c99;
+}

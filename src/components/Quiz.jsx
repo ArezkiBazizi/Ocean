@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import "./Quiz.css"; // Importez le fichier CSS
+import "./Quiz.css";
 
-const Quiz = ({ questions = [], onFinish }) => {
+const Quiz = ({ questions = [] }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
-    const [selectedOption, setSelectedOption] = useState(null);
     const [isAnswered, setIsAnswered] = useState(false);
-
-    if (!questions || questions.length === 0) {
-        return <p>Aucune question disponible pour ce quiz.</p>;
-    }
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [isQuizFinished, setIsQuizFinished] = useState(false);
 
     const handleOptionClick = (index) => {
         if (isAnswered) return;
@@ -25,16 +22,38 @@ const Quiz = ({ questions = [], onFinish }) => {
     const handleNextQuestion = () => {
         if (currentQuestion + 1 < questions.length) {
             setCurrentQuestion(currentQuestion + 1);
-            setSelectedOption(null);
             setIsAnswered(false);
+            setSelectedOption(null);
         } else {
-            onFinish(score);
+            setIsQuizFinished(true);
         }
     };
 
+    const handleRestartQuiz = () => {
+        setCurrentQuestion(0);
+        setScore(0);
+        setIsAnswered(false);
+        setSelectedOption(null);
+        setIsQuizFinished(false);
+    };
+
+    if (isQuizFinished) {
+        return (
+            <div className="quiz-container">
+                <h2>Quiz Terminé !</h2>
+                <p>
+                    Votre score : <strong>{score}</strong> / {questions.length}
+                </p>
+                <button className="restart-button" onClick={handleRestartQuiz}>
+                    Recommencer le Quiz
+                </button>
+            </div>
+        );
+    }
+
     return (
         <div className="quiz-container">
-            <h2>Question {currentQuestion + 1}/{questions.length}</h2>
+            <h2>Question {currentQuestion + 1} / {questions.length}</h2>
             <p>{questions[currentQuestion]?.question || "Question indisponible"}</p>
             <div className="quiz-options">
                 {questions[currentQuestion]?.options?.map((option, index) => (
@@ -50,6 +69,7 @@ const Quiz = ({ questions = [], onFinish }) => {
                                 : ""
                         }`}
                         onClick={() => handleOptionClick(index)}
+                        disabled={isAnswered} // Désactive les options après avoir répondu
                     >
                         {option}
                     </button>
