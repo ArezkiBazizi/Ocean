@@ -9,6 +9,9 @@ import Footer from "./components/Footer";
 import Konami from "react-konami-code";
 import PodcastPage from "./components/PodcastPage";
 import ContactPage from "./components/ContactPage";
+import QuizCard from "./components/QuizCard";
+import quizQuestions from "./audio/quiz";
+
 
 const App = () => {
     const navigate = useNavigate();
@@ -33,6 +36,7 @@ const App = () => {
                             {/* Arrière-plan océan */}
                             <OceanScene />
                             <BodyParts />
+                            <QuizCard questions={quizQuestions} />
                             <Footer />
                         </>
                     }

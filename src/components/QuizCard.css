@@ -1,0 +1,67 @@
+.start-quiz-button {
+    z-index : 6;
+    padding: 10px 20px;
+    position : relative;
+    left : 75%;
+    top : 40%;
+    background-color: #0077be;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    opacity : 0.8;
+    width : 200px;
+    filter: brightness(0.6) contrast(1);
+    background-image: url("https://assets.codepen.io/13471/sparkles.gif"),
+    url(https://assets.codepen.io/13471/holo.png),
+    linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
+}
+
+.start-quiz-button:hover {
+    background-color: #005c99;
+    filter: brightness(1) contrast(1);
+    opacity : 1;
+    transition: all 0.33s ease;
+}
+
+.quiz-card-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.quiz-card {
+    background: #604e4e;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    width: 80%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.close-button:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
