@@ -80,7 +80,6 @@ Ce projet est une application web interactive qui propose :
 ### 🧑‍💻 Auteur
 Arezki Bazizi
 Email : baziziarezki@gmail.com
-GitHub : Votre Profil GitHub
 
 ---
 
